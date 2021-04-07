@@ -36,6 +36,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
 
   return (
     <Fragment>
+      <h1>Create new account</h1>
       <form onSubmit = {e => onSubmit(e)}>
         <div className="form-group">
           <label for="nameOfUser">Name</label>
