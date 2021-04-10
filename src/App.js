@@ -9,6 +9,10 @@ import PrivateRoute from './components/routing/PrivateRoute'
 import CreateProfile from './components/profile-forms/create-profile'
 import EditProfile from './components/profile-forms/edit-profile'
 import Profiles from './components/profiles/profiles'
+import Profile from './components/profile/profile'
+import Facilities from './components/facilities/facilities'
+import Facility from './components/facility/facility-item'
+import CreateFacility from './components/facilities/create-facility'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import React, {useEffect} from 'react'
 
@@ -40,9 +44,13 @@ const App = () => {
               <Route exact path="/register" component={Register}/>
               <Route exact path="/login" component={Login}/>
               <Route exact path="/profiles" component={Profiles}/>
+              <Route exact path="/profile/:profileId" component={Profile}/>
               <PrivateRoute exact path="/dashboard" component={Dashboard}/>
               <PrivateRoute exact path="/create-profile" component={CreateProfile}/>
               <PrivateRoute exact path="/edit-profile" component={EditProfile}/>
+              <PrivateRoute exact path="/facilities" component={Facilities}/>
+              <PrivateRoute exact path="/facilities/:facilityId" component={Facility}/>
+              <PrivateRoute exact path="/create-facility" component={CreateFacility}/>
             </Switch>
           </section>
         </div>

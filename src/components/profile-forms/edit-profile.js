@@ -24,7 +24,7 @@ const EditProfile = ({profile: {profile, loading}, createProfile, getCurrentProf
       rating: loading || !profile.rating ? '' : profile.rating,
       lessonFocusAreas: loading || !profile.lessonFocusAreas ? '' : profile.lessonFocusAreas.join(',')
     })
-  }, [loading])
+  }, [loading, getCurrentProfile])
 
   const {
     address,
