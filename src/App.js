@@ -7,6 +7,8 @@ import Alert from './components/layout/alert'
 import Dashboard from './components/dashboard/dashboard'
 import PrivateRoute from './components/routing/PrivateRoute'
 import CreateProfile from './components/profile-forms/create-profile'
+import EditProfile from './components/profile-forms/edit-profile'
+import Profiles from './components/profiles/profiles'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import React, {useEffect} from 'react'
 
@@ -37,8 +39,10 @@ const App = () => {
             <Switch>
               <Route exact path="/register" component={Register}/>
               <Route exact path="/login" component={Login}/>
+              <Route exact path="/profiles" component={Profiles}/>
               <PrivateRoute exact path="/dashboard" component={Dashboard}/>
               <PrivateRoute exact path="/create-profile" component={CreateProfile}/>
+              <PrivateRoute exact path="/edit-profile" component={EditProfile}/>
             </Switch>
           </section>
         </div>

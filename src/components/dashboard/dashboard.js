@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {getCurrentProfile} from '../../actions/profile-actions'
+import DashboardActions from './dashboardActions'
 
 const Dashboard = ({getCurrentProfile, auth: {user}, profile: {profile, loading}}) => {
 
@@ -16,7 +17,7 @@ const Dashboard = ({getCurrentProfile, auth: {user}, profile: {profile, loading}
       <p>
         <i className='fas fa-user'>Welcome {user && user.name}</i>
       </p>
-      {profile !== null ? <Fragment>Profile found</Fragment> : 
+      {profile !== null ? <Fragment><DashboardActions/></Fragment> : 
         <Fragment>
           <p>No profile found. Please create a profile</p>
           <Link to='/create-profile' className='btn btn-primary my-1'>Create profile</Link>
