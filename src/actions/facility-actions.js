@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {setAlert} from './alert-actions'
-import {GET_FACILITIES, FACILITY_ERROR, DELETE_FACILITY, ADD_FACILITY, GET_FACILITY} from './types'
+import {GET_FACILITIES, FACILITY_ERROR, DELETE_FACILITY, 
+  ADD_FACILITY, GET_FACILITY, ADD_COMMENT, REMOVE_COMMENT} from './types'
 
 //Get all facilities
 export const getFacilities = () => async dispatch => {
@@ -81,5 +82,53 @@ export const getFacility = id => async dispatch => {
         type: FACILITY_ERROR,
         payload: {msg: err.response.statusText, status: err.response.status}
       })
+  }
+}
+
+//Add a comment to a facility
+export const addComment = (facilityId, formData) => async dispatch => {
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  try {
+    const res = await axios.post(`/api/facilities/${facilityId}/comment`, formData, config)
+
+    dispatch({
+      type: ADD_COMMENT,
+      payload: res.data
+    })
+
+    dispatch(setAlert('Comment Added', 'success'))
+  }
+  catch (err) {
+    dispatch({
+      type: FACILITY_ERROR,
+      payload: {msg: err.response.statusText, status: err.response.status}
+    })
+  }
+}
+
+//Delete commnet
+export const deleteComment = (facilityId, commentId) => async dispatch => {
+
+  try {
+    const res = await axios.delete(`/api/facilities/${facilityId}/comment/${commentId}`)
+
+    dispatch({
+      type: REMOVE_COMMENT,
+      payload: commentId
+    })
+
+    dispatch(setAlert('Comment Deleted', 'success'))
+  }
+  catch (err) {
+    dispatch({
+      type: FACILITY_ERROR,
+      payload: {msg: err.response.statusText, status: err.response.status}
+    })
   }
 }

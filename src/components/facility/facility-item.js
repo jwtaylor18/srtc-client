@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {getFacility} from '../../actions/facility-actions'
 import {useParams} from 'react-router-dom'
+import CommentForm from './comment-form'
+import CommentItem from './comment-item'
 
 const Facility = ({auth, getFacility, facility:{facility, loading}}) => {
 
@@ -16,7 +18,16 @@ const Facility = ({auth, getFacility, facility:{facility, loading}}) => {
 
     loading || facility === null ? (<div>Loading</div>) :
 
-    <div>The name of the facility is {facility.facilityName}</div>
+    <div>The name of the facility is {facility.facilityName}
+      <br/>
+      <CommentForm facilityId={facilityId}/>
+      <div className="comments">
+      {facility.comments.map(comment => (
+        <CommentItem key={comment._id} comment={comment} facilityId={facilityId}/>
+      ))}  
+      </div>
+    </div>
+    
   )
 }
 

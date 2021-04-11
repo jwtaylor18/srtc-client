@@ -3,7 +3,9 @@ import {
   FACILITY_ERROR,
   DELETE_FACILITY,
   ADD_FACILITY,
-  GET_FACILITY
+  GET_FACILITY,
+  ADD_COMMENT,
+  REMOVE_COMMENT
 } from '../actions/types'
 
 const initialState = {
@@ -43,6 +45,23 @@ export default function(state = initialState, action){
         ...state,
         facilities: state.facilities.filter(facility => facility._id != payload),
         loading: false
+      }
+
+    case ADD_COMMENT:
+      return {
+        ...state,
+        facility: {...state.facility, comments: payload},
+        loading: false
+      }
+
+    case REMOVE_COMMENT:
+      return {
+        ...state,
+        facility: {
+          ...state.facility,
+          comments: state.facility.comments.filter(comment => comment._id !== payload),
+          loading: false
+        }
       }
     case FACILITY_ERROR:
       return {
