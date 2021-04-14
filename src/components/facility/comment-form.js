@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {addComment} from '../../actions/facility-actions'
+import '../../styles/facility/comments-style.css'
 
 const CommentForm = ({facilityId, addComment}) => {
 
@@ -9,8 +10,8 @@ const CommentForm = ({facilityId, addComment}) => {
 
   return (
     <div>
-      <div className='bg-primary p'>
-        <h3>Leave a review about this tennis facility</h3>
+      <div className=''>
+        Leave a review about this tennis facility
       </div>
       <form
         className='form my-1'
@@ -22,8 +23,7 @@ const CommentForm = ({facilityId, addComment}) => {
       >
         <textarea
           name='text'
-          cols='30'
-          rows='5'
+          rows='4'
           placeholder='Leave a review'
           value={text}
           onChange={e => setText(e.target.value)}

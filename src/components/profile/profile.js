@@ -3,30 +3,48 @@ import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {useParams} from 'react-router-dom'
+import PublicProfile from './profile-public-info'
+import PrivateProfile from './private-profile-info'
 import {getProfileById} from '../../actions/profile-actions'
+import {getCurrentProfile} from '../../actions/profile-actions'
 
 
-const Profile = ({getProfileById, profile: {profile, loading}, auth}) => {
+const Profile = ({getCurrentProfile, getProfileById, profile: {profile, loading}, auth}) => {
 
   const {profileId} = useParams()
 
   useEffect(() => {
-    getProfileById(profileId)
-  },[getProfileById])
+
+    if (profileId !== undefined) {
+      getProfileById(profileId)
+    }
+    else {
+      getCurrentProfile()
+    }
+  },[getProfileById, getCurrentProfile])
+
   return (
     <Fragment>
       {profile === null || loading ? <div>Loading...</div> : 
         <Fragment>
             <Link to='/profiles' className="btn btn-light">Back to Profiles</Link>
-
-            {/* Display the edit profile button if the user is logged in and viewing their own profile */}
-            {auth && auth.isAuthenticated && auth.loading === false && auth.user._id === profile.user._id &&
-             (<Link to='/edit-profile' className='btn btn-dark'>Edit Profile</Link>) }
-
             <div>
-              Build profile component here
+              <PublicProfile name={profile.user.name} bio={profile.bio}/>
             </div>
 
+             {/* Display the edit profile button if the user is logged in and viewing their own profile */}
+             {auth && auth.isAuthenticated && auth.loading === false && auth.user._id === profile.user._id &&
+             (
+              <Fragment>
+                <Link to='/edit-profile' className='btn btn-dark'>Edit Profile</Link>
+                <PrivateProfile 
+                  address={profile.address} 
+                  zipCode={profile.zipCode}
+                  rating={profile.rating} 
+                  lessonFocusAreas={profile.lessonFocusAreas}
+                />
+              </Fragment>)
+              }
         </Fragment> }
     </Fragment>
   )
@@ -34,6 +52,7 @@ const Profile = ({getProfileById, profile: {profile, loading}, auth}) => {
 
 Profile.propTypes = {
   getProfileById: PropTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired
 }
@@ -43,4 +62,4 @@ const stpm = state => ({
   auth: state.authReducer
 })
 
-export default connect(stpm, {getProfileById})(Profile)
+export default connect(stpm, {getProfileById, getCurrentProfile})(Profile)

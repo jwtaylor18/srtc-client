@@ -11,10 +11,11 @@ const Register = ({setAlert, register, isAuthenticated}) => {
     nameOfUser:'',
     email:'',
     password1:'',
-    password2:''
+    password2:'',
+    isOperator: false
   })
 
-  const {nameOfUser, email, password1, password2} = formData
+  const {nameOfUser, email, password1, password2, isOperator} = formData
 
   const onChange = e => setFormData({...formData, [e.target.id]: e.target.value})
 
@@ -25,7 +26,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
       setAlert('Passwords do not match', 'danger')
     }
     else {
-      register({nameOfUser, email, password1})
+      register({nameOfUser, email, password1, isOperator})
     }
   }
 
@@ -42,14 +43,14 @@ const Register = ({setAlert, register, isAuthenticated}) => {
           <label for="nameOfUser">Name</label>
           <input type="text" className="form-control" id="nameOfUser" 
             onChange={e => onChange(e)} 
-            // required 
+            required 
             placeholder="John Doe"/>
         </div>
         <div className="form-group">
           <label for="email">Email address</label>
           <input type="email" className="form-control" id="email" 
             onChange={e => onChange(e)}
-            // required
+            required
             placeholder="name@example.com"/>
         </div>
         <div className="form-group">
@@ -66,10 +67,21 @@ const Register = ({setAlert, register, isAuthenticated}) => {
             required
             placeholder="Confirm Password"/>
         </div>
-        <div className="form-check">
-          <input type="checkbox" class="form-check-input" onChange={e => onChange(e)} id="exampleCheck1"/>
-          <label className="form-check-label" for="exampleCheck1">Please check if you are a facility operator</label>
-        </div>
+
+        <div class="form-group">
+          <label for="isOperator">Select Account Type</label>
+          <select class="form-control" id="isOperator" onChange={e => onChange(e)}>
+            <option value={false}>Tennis Player</option>
+            <option value={true}>Facility Operator</option>
+          </select>
+      </div>
+
+
+
+        {/* <div className="form-check">
+          <input type="checkbox" class="form-check-input" onChange={e => onChange(e)} id="isOperatorBox"/>
+          <label className="form-check-label" for="isOperatorBox">Are you a facility operator?  Checking this box will create an account type of facility operator.</label>
+        </div> */}
         <button type="submit" className="btn btn-primary">Register</button>
       </form>
       <p className='my-1'>

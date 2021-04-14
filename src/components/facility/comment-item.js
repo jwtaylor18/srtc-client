@@ -12,7 +12,7 @@ const CommentItem = ({
   deleteComment
 }) => {
   return (
-    <div className="bg-white p-1 my-1">
+    <li className="list-group-item d-flex justify-content-between align-items-center">
       <div>
         <p className="my-1">{text}</p>
         <p className="facility-date">Posted on {formatDate(date)}</p>
@@ -26,7 +26,7 @@ const CommentItem = ({
           </button>
         )}
       </div>
-  </div>
+  </li>
   )
 }
 
