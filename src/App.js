@@ -16,6 +16,7 @@ import Facility from './components/facility/facility-item'
 import CreateFacility from './components/facilities/create-facility'
 import Weather2 from './components/weather/weather2'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import Axios from "axios"
 import React, {useEffect} from 'react'
 
 //Redux stuff
@@ -27,6 +28,8 @@ import {loadUser} from './actions/auth-actions'
 if(localStorage.token) {
   setAuthToken(localStorage.token)
 }
+
+Axios.defaults.baseURL = process.env.REACT_APP_ENDPOINT
 
 const App = () => {
   
