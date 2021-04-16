@@ -1,6 +1,7 @@
 import './App.css';
 import Navbar from './components/layout/navbar'
 import Landing from './components/layout/landing'
+import Landing2 from './components/layout/landing2'
 import Register from './components/auth/register'
 import Login from './components/auth/login'
 import Alert from './components/layout/alert'
@@ -38,7 +39,8 @@ const App = () => {
       <Router>
         <div>
           <Navbar/>
-          <Route exact path="/" component={Landing}/>
+          {/* <Route exact path="/" component={Landing}/> */}
+          <Route exact path="/" component={Landing2}/>
           <section className="container">
             <Alert/>
             <Switch>
