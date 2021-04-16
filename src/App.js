@@ -13,6 +13,7 @@ import Profile from './components/profile/profile'
 import Facilities from './components/facilities/facilities'
 import Facility from './components/facility/facility-item'
 import CreateFacility from './components/facilities/create-facility'
+import Weather2 from './components/weather/weather2'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import React, {useEffect} from 'react'
 
@@ -42,6 +43,7 @@ const App = () => {
             <Alert/>
             <Switch>
               <Route exact path="/register" component={Register}/>
+              <Route exact path="/weather" component={Weather2}/>
               <Route exact path="/login" component={Login}/>
               <Route exact path="/profiles" component={Profiles}/>
               <Route exact path="/profile/:profileId" component={Profile}/>

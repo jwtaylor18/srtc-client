@@ -16,10 +16,23 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
         <div>Loading...</div>
       ) : (
         <Fragment>
-          <h1 className='large text-primary'>Members</h1>
+          <div className="row">
+            <div className="col-md-8 col-12">
+              <h1>Member List</h1>
+            </div>
+            <div className="col-md-4 col-12">
+                <button type="button" className="float-right btn btn-outline-primary">Print Member List</button>
+            </div>
+          </div>
           <p className='lead'>
             <i className='fab fa-connectdevelop' /> Find other tennis players
           </p>
+          <p>Tennis Desk</p>
+          <p>Founded 2021</p>
+          
+          <p><span className="font-weight-bold">Important Note: </span>Please respect the privacy of our members by not compiling email lists for the purpose of sending unsolicited emails, or by sharing their personal information without approval. Thank you.</p>
+          <hr></hr>
+         
           <div>
             {profiles.length > 0 ? (
               profiles.map(profile => (

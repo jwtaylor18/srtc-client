@@ -3,7 +3,7 @@ import '../../styles/profile/profile-styles.css'
 import {Link} from 'react-router-dom'
 
 
-const PublicProfile = ({name, bio}) => {
+const PublicProfile = ({name, bio, email}) => {
 
   return (
   <Fragment>
@@ -26,6 +26,14 @@ const PublicProfile = ({name, bio}) => {
           <div className="mb-3 row">
             <div className="font-weight-bold col-sm-4">Bio:</div>
             <div className="col-sm-8">{bio}</div>
+          </div>
+        </div>
+      </div>
+      <div className="mt-3 row">
+        <div className="col-12 col-xl-6">
+          <div className="mb-3 row">
+            <div className="font-weight-bold col-sm-4">Email:</div>
+            <div className="col-sm-8">{email}</div>
           </div>
         </div>
       </div>

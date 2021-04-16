@@ -29,7 +29,7 @@ const Profile = ({getCurrentProfile, getProfileById, profile: {profile, loading}
         <Fragment>
             <Link to='/profiles' className="btn btn-light">Back to Profiles</Link>
             <div>
-              <PublicProfile name={profile.user.name} bio={profile.bio}/>
+              <PublicProfile name={profile.user.name} bio={profile.bio} email={profile.user.email}/>
             </div>
 
              {/* Display the edit profile button if the user is logged in and viewing their own profile */}
