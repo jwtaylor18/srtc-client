@@ -6,7 +6,7 @@ import {GET_FACILITIES, FACILITY_ERROR, DELETE_FACILITY,
 //Get all facilities
 export const getFacilities = () => async dispatch => {
   try {
-    const res = await axios.get('/api/facilities')
+    const res = await axios.get('/facilities')
 
     dispatch({
       type: GET_FACILITIES,
@@ -23,7 +23,7 @@ export const getFacilities = () => async dispatch => {
 //Delete facility
 export const deleteFacility = id => async dispatch => {
   try {
-    const res = await axios.delete(`/api/facilities/${id}`)
+    const res = await axios.delete(`/facilities/${id}`)
 
     dispatch({
       type: DELETE_FACILITY,
@@ -50,7 +50,7 @@ export const addFacility = (formData, history) => async dispatch => {
   }
 
   try {
-    const res = await axios.post('/api/facilities', formData, config)
+    const res = await axios.post('/facilities', formData, config)
 
     dispatch({
       type: ADD_FACILITY,
@@ -71,7 +71,7 @@ export const addFacility = (formData, history) => async dispatch => {
 //Get a facility by ID
 export const getFacility = id => async dispatch => {
   try {
-    const res = await axios.get(`/api/facilities/${id}`)
+    const res = await axios.get(`/facilities/${id}`)
 
     dispatch({
       type: GET_FACILITY,
@@ -95,7 +95,7 @@ export const addComment = (facilityId, formData) => async dispatch => {
   }
 
   try {
-    const res = await axios.post(`/api/facilities/${facilityId}/comment`, formData, config)
+    const res = await axios.post(`/facilities/${facilityId}/comment`, formData, config)
 
     dispatch({
       type: ADD_COMMENT,
@@ -116,7 +116,7 @@ export const addComment = (facilityId, formData) => async dispatch => {
 export const deleteComment = (facilityId, commentId) => async dispatch => {
 
   try {
-    const res = await axios.delete(`/api/facilities/${facilityId}/comment/${commentId}`)
+    const res = await axios.delete(`/facilities/${facilityId}/comment/${commentId}`)
 
     dispatch({
       type: REMOVE_COMMENT,

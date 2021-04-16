@@ -4,7 +4,7 @@ import {SET_ALERT, REMOVE_ALERT} from './types'
 
 //Refactor these actions below to use an alertsService?
 
-export const setAlert = (msg, alertType, timeout = 2000) => dispatch => {
+export const setAlert = (msg, alertType, timeout = 3000) => dispatch => {
   const id = uuidv4();
 
   dispatch({

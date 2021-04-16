@@ -11,7 +11,7 @@ import {
 //Get the current users profile
 export const getCurrentProfile = () => async dispatch => {
   try {
-    const res = await axios.get('/api/profile/me')
+    const res = await axios.get('/profile/me')
 
     dispatch ({
       type: GET_PROFILE,
@@ -30,7 +30,7 @@ export const getProfiles = () => async dispatch => {
   dispatch({type: CLEAR_PROFILE})
   
   try {
-    const res = await axios.get('/api/profile')
+    const res = await axios.get('/profile')
 
     dispatch ({
       type: GET_PROFILES,
@@ -49,7 +49,7 @@ export const getProfileById = userId => async dispatch => {
   dispatch({type: CLEAR_PROFILE})
   
   try {
-    const res = await axios.get(`/api/profile/user/${userId}`)
+    const res = await axios.get(`/profile/user/${userId}`)
 
     dispatch ({
       type: GET_PROFILE,
@@ -73,7 +73,7 @@ export const createProfile = (formData, history, edit = false) => async dispatch
       }
     }
 
-    const res = await axios.post('/api/profile', formData, config)
+    const res = await axios.post('/profile', formData, config)
 
     dispatch ({
       type: GET_PROFILE,
