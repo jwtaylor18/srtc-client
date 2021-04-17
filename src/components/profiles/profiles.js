@@ -30,7 +30,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
           <p>Tennis Desk</p>
           <p>Founded 2021</p>
           
-          <p><span className="font-weight-bold">Important Note: </span>Please respect the privacy of our members by not compiling email lists for the purpose of sending unsolicited emails, or by sharing their personal information without approval. Thank you.</p>
+          <p><span className="font-weight-bold">Important Note: </span>Please respect the privacy of our members by not sharing their personal information without their approval. Thank you.</p>
           <hr></hr>
          
           <div>

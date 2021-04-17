@@ -3,41 +3,46 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth-actions';
+import '../../styles/landing/navbar-styles.css'
 
 const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   const authLinks = (
-    <ul className="navbar-nav">
-      <li className="nav-item">
-        <Link to="/profiles">Members</Link>
-      </li>
-      <li className="nav-item">
-        <Link to="/facilities">Courts</Link>
-      </li>
+    <Fragment>
+
       <li className="nav-item">
         <Link to="/dashboard">
-          <i className="fas fa-user" />{' '}
-          <span>Dashboard</span>
+          <span>My Dashboard</span>
         </Link>
       </li>
       <li className="nav-item">
+        <Link to="/profiles">View Profiles</Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/facilities">Find Courts</Link>
+      </li>
+      <li className="nav-item">
         <Link to="/weather">
-          <i className="fas fa-user" />{' '}
           <span>Weather</span>
         </Link>
       </li>
       <li className="nav-item">
+        <Link to="/profile">
+          <span>My Profile</span>
+        </Link>
+      </li>
+      <li className="nav-item">
         <a onClick={logout} href="#!">
-          <i className="fas fa-sign-out-alt" />{' '}
           <span>Logout</span>
         </a>
       </li>
-    </ul>
+    </Fragment>
   );
 
   const guestLinks = (
-    <ul className="navbar-nav">
+  <Fragment>
+  
       <li className="nav-item">
-        <Link to="/profiles">Members</Link>
+        <Link to="/profiles">View Profiles</Link>
       </li>
       <li className="nav-item" >
         <Link to="/register">Register</Link>
@@ -45,22 +50,25 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
       <li className="nav-item">
         <Link to="/login">Login</Link>
       </li>
-    </ul>
+
+    </Fragment>
   );
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <Link to="/">
-          <a class="navbar-brand" href="#">TennisDesk</a>
-        </Link>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
-          </div>
+        <div className="container-fluid">
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <Link to="/">
+              <a className="navbar-brand" href="#">TennisDesk</a>
+            </Link>
+            <ul className="navbar-nav ml-auto">
+              <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+            </ul>
         </div>
+      </div>
     </nav>
   );
 };
