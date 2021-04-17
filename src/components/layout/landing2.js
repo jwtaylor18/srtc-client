@@ -33,7 +33,7 @@ const Landing2 = ({isAuthenticated}) => {
 
      <div id="test">
       <h1>Welcome to TennisDesk</h1>
-      <h4>{numNewCourts} new courts recently added</h4>
+      <h4><span class="badge bg-secondary">{numNewCourts} new courts recently added</span></h4>
      </div>
      <BackgroundSlider
       images={[image2, image1, image3]}
