@@ -7,49 +7,49 @@ const PrivateProfile = ({address, zipCode, rating, lessonFocusAreas}) => {
 
   return (
     <Fragment>
-      <div className="row">
-        <div className="col-12">
-          <h4>Private Profile Information</h4>
-        </div>
-     </div>
-      <div className="mt-3 row">
-        <div className="col-12 col-xl-6">
-          <div className="mb-3 row">
-            <div className="font-weight-bold col-sm-4">Address:</div>
-            <div className="col-sm-8">{address}</div>
-          </div>
-        </div>
-      </div>
-      <div className="mt-3 row">
-        <div className="col-12 col-xl-6">
-          <div className="mb-3 row">
-            <div className="font-weight-bold col-sm-4">Zipcode:</div>
-            <div className="col-sm-8">{zipCode}</div>
-          </div>
-        </div>
-      </div>
-      <div className="mt-3 row">
-        <div className="col-12 col-xl-6">
-          <div className="mb-3 row">
-            <div className="font-weight-bold col-sm-4">Rating:</div>
-            <div className="col-sm-8">{rating}</div>
-          </div>
-        </div>
-      </div>
 
-
-      <div className="mt-3 row">
-        <div className="col-12 col-xl-6">
-          <div className="mb-3 row">
-            <div className="font-weight-bold col-sm-4">Lesson Focus Areas:</div>
-            <div className="col-sm-8">
+      <div class="row">
+        <div class="col-6">
+          <div class="profile-header">
+            <span>Private Profile Details</span>
+          </div>
+          <hr></hr>
+          <div class="my-3 name-section row">
+            <div class="col-md-6 col-sm-12">
+              <span class="section-label">Address:</span>
+            </div>
+            <div class="col">  
+              <span class="section-text">{address}</span>
+            </div>
+          </div>
+          <div class="my-3 row">
+            <div class="col-md-6 col-sm-12">
+              <span class="section-label">Zipcode: </span>
+            </div>
+            <div class="col">
+              <span class="section-text">{zipCode}</span>
+            </div>
+          </div>
+          <div class="my-3 row">
+            <div class="col-md-6 col-sm-12">
+              <span class="section-label">Rating:</span>
+            </div>
+            <div class="col">
+              <span class="section-text">{rating}</span>
+            </div>
+          </div>
+          <div class="my-3 row">
+            <div class="col-md-6 col-sm-12">
+              <span class="section-label">Lesson Focus Areas:</span>
+            </div>
+            <div class="col">
               <ul>
                 {lessonFocusAreas.slice(0, 4).map((skill, index) => (
                   <li key={index}>
-                     {skill}
+                    {skill}
                   </li>
                 ))}
-              </ul>
+            </ul>
             </div>
           </div>
         </div>

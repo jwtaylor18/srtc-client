@@ -3,40 +3,88 @@ import '../../styles/profile/profile-styles.css'
 import {Link} from 'react-router-dom'
 
 
-const PublicProfile = ({name, bio, email}) => {
+const PublicProfile = ({name, bio, email, isOperator}) => {
 
   return (
   <Fragment>
-    <div className="d-flex-flex-row">
-      <div className="profile-image d-none d-md-flex">
-        <img src="https://images.unsplash.com/photo-1543382513-3617a90d9a46?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dGVubmlzJTIwcGxheWVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-          />
-      </div>
-      <div className="my-auto">
-        <h2>{name}</h2>
-      </div>
-    <div className="row">
-      <div className="col-12">
-        <h4>Public Profile Information</h4>
-      </div>
-    </div>
-    </div>
-      <div className="mt-3 row">
-        <div className="col-12 col-xl-6">
-          <div className="mb-3 row">
-            <div className="font-weight-bold col-sm-4">Bio:</div>
-            <div className="col-sm-8">{bio}</div>
+
+    <div class="row">
+      <div class="col">
+        <div class="profile-header">
+          <span>Member Details</span>
+        </div>
+        <hr></hr>
+        <div class="my-3 name-section row">
+          <div class="col-md-6 col-sm-12">
+            <span class="section-label">Name:</span>
+          </div>
+          <div class="col">  
+            <span class="section-text">{name}</span>
+          </div>
+        </div>
+        <div class="my-3 row">
+          <div class="col-md-6 col-sm-12">
+            <span class="section-label">Preferred Name: </span>
+          </div>
+          <div class="col">
+            <span class="section-text">{name}</span>
+          </div>
+        </div>
+        <div class="my-3 row">
+          <div class="col-md-6 col-sm-12">
+            <span class="section-label">Year Joined:</span>
+          </div>
+          <div class="col">
+            <span class="section-text">2021</span>
+          </div>
+        </div>
+        <div class="my-3 row">
+          <div class="col-md-6 col-sm-12">
+            <span class="section-label">Email:</span>
+          </div>
+          <div class="col">
+            <span class="section-text">{email}</span>
+          </div>
+        </div>
+        <div class="my-3 row">
+          <div class="col-md-6 col-sm-12">
+            <span class="section-label">Bio:</span>
+          </div>
+          <div class="col">
+            <span class="section-text">{bio}</span>
           </div>
         </div>
       </div>
-      <div className="mt-3 row">
-        <div className="col-12 col-xl-6">
-          <div className="mb-3 row">
-            <div className="font-weight-bold col-sm-4">Email:</div>
-            <div className="col-sm-8">{email}</div>
+      <div class="d-none d-lg-block col">
+        <div class="card-sample">
+          <span>TennisDesk Member Card:</span>
+        </div>
+        <div class="member-card">
+          <div class="member-container">
+            <div className="card-logo-box">
+              <i class="fas fa-table-tennis card-logo"></i>
+            </div>
+            <div class="item">
+              <span>{name}</span>
+            </div><div class="item">
+              {isOperator ? <span>Facility Operator</span> : <span>Tennis Player</span>  }
+              
+            </div>
+            <div class="item">
+              <span>United States</span>
+            </div>
+          </div>
+          <div class="card-tail">
+            <div class="badge-corners">
+              <span>TennisDesk</span>
+            </div>
+            <div class="badge-corners">
+              <span>2021</span>
+            </div>
           </div>
         </div>
       </div>
+    </div>
     </Fragment>
   )
 }

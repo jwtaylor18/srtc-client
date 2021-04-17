@@ -15,3 +15,62 @@
   margin-bottom: 1px;
   padding: 2rem;
 }
+
+.card-logo-box {
+  padding: 1rem 0 0 1rem;
+  align-self: flex-start;
+}
+
+.profile-header span {
+  color: #000;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.card-sample {
+  margin-top: .2rem;
+  font-size: .8rem;
+  color: #656565;
+  font-weight: 700;
+}
+
+.member-card {
+  border: 1px solid #656565;
+  width: 390px;
+  box-shadow: 2px 2px 2px #656565;
+  margin-top: 1rem;
+  white-space: normal;
+}
+
+.member-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-tail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item {
+  padding: .8rem 0;
+}
+
+.item:nth-child(2) span {
+  font-size: 1.5rem;
+}
+
+.item:nth-child(3) span {
+  font-size: 1rem;
+}
+
+.item:nth-child(4) .item:nth-child(5) span {
+  font-size: .8rem;
+}
+
+.section-label {
+  font-weight: bold;
+}
+

@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import {useParams} from 'react-router-dom'
 import PublicProfile from './profile-public-info'
 import PrivateProfile from './private-profile-info'
+import FacilityReviewList from './profile-facility-reviews'
 import {getProfileById} from '../../actions/profile-actions'
 import {getCurrentProfile} from '../../actions/profile-actions'
 
@@ -24,29 +25,40 @@ const Profile = ({getCurrentProfile, getProfileById, profile: {profile, loading}
   },[getProfileById, getCurrentProfile])
 
   return (
-    <Fragment>
+    <div class="main-content">
+
       {profile === null || loading ? <div>Loading...</div> : 
         <Fragment>
-            <Link to='/profiles' className="btn btn-light">Back to Profiles</Link>
+          <div class="my-3 pt-3 row">
+            <div class="font-weight-bold col-6">
+                <span class="pl-2 h2">Profile Page: {profile.user.name}</span>
+            </div>
+            <div class="col-6">
+              {auth && auth.isAuthenticated && auth.loading === false && auth.user._id === profile.user._id &&
+                (<Link to='/edit-profile' className='float-right btn btn-dark'>Edit My Profile</Link>)}
+                <Link to='/profiles' className="float-right btn btn-light">Back to Profile List</Link>
+            </div>
+          </div>
+            
             <div>
-              <PublicProfile name={profile.user.name} bio={profile.bio} email={profile.user.email}/>
+              <PublicProfile name={profile.user.name} bio={profile.bio} email={profile.user.email} isOperator={profile.user.isOperator}/>
             </div>
 
              {/* Display the edit profile button if the user is logged in and viewing their own profile */}
              {auth && auth.isAuthenticated && auth.loading === false && auth.user._id === profile.user._id &&
              (
               <Fragment>
-                <Link to='/edit-profile' className='btn btn-dark'>Edit Profile</Link>
                 <PrivateProfile 
                   address={profile.address} 
                   zipCode={profile.zipCode}
                   rating={profile.rating} 
                   lessonFocusAreas={profile.lessonFocusAreas}
                 />
+                <FacilityReviewList/>
               </Fragment>)
               }
         </Fragment> }
-    </Fragment>
+    </div>
   )
 }
 

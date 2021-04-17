@@ -15,7 +15,7 @@ export const getFacilities = () => async dispatch => {
   } catch (err) {
       dispatch({
         type: FACILITY_ERROR,
-        payload: {msg: err.response.statusText, status: err.response.status}
+        payload: {msg: "get facilities 500 error manually caught", status: 500}
       })
   }
 }

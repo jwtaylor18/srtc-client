@@ -1,34 +1,30 @@
-import React from 'react';
+import React, {Fragment, useEffect, useState} from 'react'
+import {connect} from 'react-redux'
+import PropTypes from 'prop-types'
+import {getFacilities} from '../../actions/facility-actions'
 import WeatherPart from './WeatherPart'
 
-class App extends React.Component {
+const Weather = ({getFacilities, facility: {facilities, loading}}) => {
 
-    constructor() {
-        super();
-        this.clubs = [
-            {
-                name: "Club 1",
-                locationName: "Boston, MA",
-                lat : 40.441792,
-                lon : -94.037689
-            },
-            {
-                name : "Club 2",
-                locationName :"Boston, MA",
-                lat : 44.441792,
-                lon : -94.037689
-            } 
-        ];
+  useEffect(() => {
+    getFacilities()
+  }, [getFacilities])
 
-      }
 
-    render() {
         return (
             <div className="container">
-                <WeatherPart clubs={this.clubs}/>                
+                <WeatherPart clubs={facilities}/>                
             </div>
         );
-    }
 }
 
-export default App;
+Weather.propTypes = {
+  getFacilities: PropTypes.func.isRequired,
+  facility: PropTypes.object.isRequired
+}
+
+const stpm = state => ({
+  facility: state.facilityReducer
+})
+
+export default connect(stpm, {getFacilities})(Weather)
