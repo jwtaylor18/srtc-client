@@ -10,7 +10,6 @@ const Weather = ({getFacilities, facility: {facilities, loading}}) => {
     getFacilities()
   }, [getFacilities])
 
-
         return (
             <div className="container">
                 <WeatherPart clubs={facilities}/>                

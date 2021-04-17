@@ -14,7 +14,7 @@ import Profile from './components/profile/profile'
 import Facilities from './components/facilities/facilities'
 import Facility from './components/facility/facility-item'
 import CreateFacility from './components/facilities/create-facility'
-import Weather from './components/weather/Weather'
+import Weather from './components/weather/weather'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Axios from "axios"
 import React, {useEffect} from 'react'
