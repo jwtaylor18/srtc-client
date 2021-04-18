@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth-actions';
 import '../../styles/landing/navbar-styles.css'
 
-const Navbar = ({ auth: { isAuthenticated }, logout }) => {
+const Navbar = ({ auth: {isAuthenticated}, logout }) => {
   const authLinks = (
     <Fragment>
 
@@ -15,15 +15,10 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
         </Link>
       </li>
       <li className="nav-item">
-        <Link to="/profiles">View Profiles</Link>
+        <Link to="/profiles">Member Directory</Link>
       </li>
       <li className="nav-item">
         <Link to="/facilities">Find Courts</Link>
-      </li>
-      <li className="nav-item">
-        <Link to="/weather">
-          <span>Weather</span>
-        </Link>
       </li>
       <li className="nav-item">
         <Link to="/profile">
@@ -42,7 +37,7 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   <Fragment>
   
       <li className="nav-item">
-        <Link to="/profiles">View Profiles</Link>
+        <Link to="/profiles">Member Directory</Link>
       </li>
       <li className="nav-item" >
         <Link to="/register">Register</Link>
@@ -82,4 +77,4 @@ const stpm = (state) => ({
   auth: state.authReducer
 });
 
-export default connect(stpm, { logout })(Navbar);
+export default connect(stpm, {logout})(Navbar);

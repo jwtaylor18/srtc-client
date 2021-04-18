@@ -11,16 +11,14 @@ const Dashboard = ({getCurrentProfile, auth: {user}, profile: {profile, loading}
     getCurrentProfile()
   }, [getCurrentProfile])
 
-  return loading && profile === null ? <div>Profile still loading</div> :
+  return loading && profile === null ? <div>Dashboard loading</div> :
     <Fragment>
-      <h1>Dashboard</h1>
-      <p>
-        <i className='fas fa-user'>Welcome {user && user.name}</i>
-      </p>
-      {profile !== null ? <Fragment><DashboardActions/></Fragment> : 
+      <h1>My Dashboard</h1>
+      
+      {profile !== null ? <Fragment><DashboardActions isOperator={user.isOperator}/></Fragment> : 
         <Fragment>
-          <p>No profile found. Please create a profile</p>
-          <Link to='/create-profile' className='btn btn-primary my-1'>Create profile</Link>
+          <p class="alert alert-warning" role="alert">Please click the link below to create a profile before continuing.</p>
+          <Link to='/create-profile' className='btn btn-primary my-1'>Create Profile</Link>
         </Fragment> }
     </Fragment> 
 }
