@@ -29,10 +29,11 @@ const Profile = ({getCurrentProfile, getProfileById, profile: {profile, loading}
 
       {profile === null || loading ? <div>Loading...</div> : 
         <Fragment>
-          <div class="my-3 pt-3 row">
-            <div class="font-weight-bold col-6">
-                <span class="pl-2 h2">Profile Page: {profile.user.name}</span>
+          <div class="row">
+            <div className="col-6">
+              <h1>Profile Page: {profile.user.name}</h1>
             </div>
+            
             <div class="col-6">
               {auth && auth.isAuthenticated && auth.loading === false && auth.user._id === profile.user._id &&
                 (<Link to='/edit-profile' className='float-right btn btn-dark'>Edit My Profile</Link>)}

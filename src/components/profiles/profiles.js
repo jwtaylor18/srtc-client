@@ -24,12 +24,8 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
                 <button type="button" className="float-right btn btn-outline-primary">Print Member List</button>
             </div>
           </div>
-          <p className='lead'>
-            <i className='fab fa-connectdevelop' /> Find other tennis players
-          </p>
-          <p>Tennis Desk</p>
-          <p>Founded 2021</p>
-          
+          <h5>Find other tennis players and facility operators</h5>
+          <p>Tennis Desk, Founded 2021</p>
           <p><span className="font-weight-bold">Important Note: </span>Please respect the privacy of our members by not sharing their personal information without their approval. Thank you.</p>
           <hr></hr>
          

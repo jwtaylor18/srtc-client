@@ -12,7 +12,7 @@ const Dashboard = ({getCurrentProfile, auth: {user}, profile: {profile, loading}
   }, [getCurrentProfile])
 
   return loading && profile === null ? <div>Dashboard loading</div> :
-    <Fragment>
+    <div>
       <h1>My Dashboard</h1>
       
       {profile !== null ? <Fragment><DashboardActions isOperator={user.isOperator}/></Fragment> : 
@@ -20,7 +20,7 @@ const Dashboard = ({getCurrentProfile, auth: {user}, profile: {profile, loading}
           <p class="alert alert-warning" role="alert">Please click the link below to create a profile before continuing.</p>
           <Link to='/create-profile' className='btn btn-primary my-1'>Create Profile</Link>
         </Fragment> }
-    </Fragment> 
+    </div> 
 }
 
 Dashboard.propTypes = {

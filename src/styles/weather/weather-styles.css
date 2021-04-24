@@ -1,0 +1,19 @@
+.weatherHeader {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  font-size: small;
+  font-weight: bolder;
+  padding: .3em;
+}
+
+.weatherDetail {
+  height:51vh;
+  overflow-y: auto;
+}
+
+.weatherCard {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  background-color:azure;
+  align-items: center;
+}

@@ -1,6 +1,7 @@
 import React, {Fragment, useEffect} from 'react'
 import '../../styles/profile/profile-styles.css'
 import {Link} from 'react-router-dom'
+import '../../styles/profile/profile-styles.css'
 
 
 const PrivateProfile = ({address, zipCode, rating, lessonFocusAreas}) => {
@@ -43,7 +44,7 @@ const PrivateProfile = ({address, zipCode, rating, lessonFocusAreas}) => {
               <span class="section-label">Lesson Focus Areas:</span>
             </div>
             <div class="col">
-              <ul>
+              <ul id='lessonFocusAreas'>
                 {lessonFocusAreas.slice(0, 4).map((skill, index) => (
                   <li key={index}>
                     {skill}

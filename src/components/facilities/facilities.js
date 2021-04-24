@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {getFacilities} from '../../actions/facility-actions'
 import FacilityList from './facility-list'
+import '../../styles/facility/facility-list-styles.css'
 
 const Facilities = ({getFacilities, facility: {facilities, loading}}) => {
   
@@ -14,18 +15,15 @@ const Facilities = ({getFacilities, facility: {facilities, loading}}) => {
   const listToDisplay = facilities.filter((f) => f.facilityName.toLowerCase().includes(searchTerm.toLowerCase()))
  
  
-  return loading ? <div>Loading</div> : <Fragment>
-    <h1 className="large text-primary">Courts</h1>
-    <p className="lead">
-      <i className="fas fa-user">Welcome to the TennisDesk Community</i>
-    </p>
+  return loading ? <div>Loading</div> : <div>
+    <h1>Search for Courts</h1>
     <input
       type='search'
-      placeholder = 'Search Courts by Facility Name'
+      placeholder = 'Search by Court Name'
       onChange={e => setSearchTerm(e.target.value)}
     />
     <FacilityList facilities={listToDisplay}/>
-  </Fragment>
+  </div>
 }
 
 Facilities.propTypes = {

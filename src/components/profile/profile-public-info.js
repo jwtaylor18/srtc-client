@@ -62,7 +62,7 @@ const PublicProfile = ({name, bio, email, isOperator}) => {
         <div class="member-card">
           <div class="member-container">
             <div className="card-logo-box">
-              <i class="fas fa-table-tennis card-logo"></i>
+              <i class="fas fa-table-tennis fa-2x card-logo"></i>
             </div>
             <div class="item">
               <span>{name}</span>

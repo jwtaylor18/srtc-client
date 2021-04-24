@@ -1,5 +1,5 @@
 import React from 'react'
-import weatherForecast from '../../services/weather/weatherUtil';
+import weatherService from '../../services/weather/weather-service';
 import SearchBar from './SearchBar';
 import WeatherDetail from './WeatherDetail';
 
@@ -9,7 +9,7 @@ class WeatherPart extends React.Component {
 
     }
     
-    state = {forecast: [] };
+    state = {timezone: '', forecast: [] };
 
     onSearchChange = async (info) => {
         
@@ -17,15 +17,14 @@ class WeatherPart extends React.Component {
         const lat = location[0];
         const lon = location[1];
 
-        const response = await weatherForecast.get('/onecall', {
+        const response = await weatherService.get('/onecall', {
             params: {
                 lat: lat,
                 lon: lon
             }
         });
 
-        this.setState({forecast:response.data.hourly});
-        console.log(response.data);
+        this.setState({timezone: response.data.timezone, forecast: response.data.hourly});
     }
 
 
@@ -33,7 +32,7 @@ class WeatherPart extends React.Component {
         return (
             <div>
                 <SearchBar clubs={this.props.clubs} onSearchChange={this.onSearchChange} />
-                <WeatherDetail forecast={this.state.forecast} />
+                <WeatherDetail timezone={this.state.timezone} forecast={this.state.forecast} />
             </div>
         );
     }
