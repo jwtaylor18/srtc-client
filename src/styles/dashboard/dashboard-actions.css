@@ -16,11 +16,13 @@
 }
 
 .title {
-  color: black;
   font-size: x-large
 }
 
-.text {
+.enabled-action {
   color: black;
+}
 
+.disabled-action {
+  color: rgb(163, 162, 162)
 }

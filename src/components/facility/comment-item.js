@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import formatDate from '../../utils/format-date'
 import {deleteComment} from '../../actions/facility-actions'
+import '../../styles/facility/comments-style.css'
 
 const CommentItem = ({
   facilityId,
@@ -12,7 +13,7 @@ const CommentItem = ({
   deleteComment
 }) => {
   return (
-    <li className="list-group-item d-flex justify-content-between align-items-center">
+    <li className="list-group-item d-flex justify-content-between align-items-center review-item">
       <div>
         <p className="my-1">{text}</p>
         <p className="facility-date">Posted on {formatDate(date)}</p>

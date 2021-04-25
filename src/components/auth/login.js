@@ -26,7 +26,8 @@ const Login = ({login, isAuthenticated}) => {
   }
 
   return (
-    <Fragment>
+    <div className="main-content">
+      <h1>Login</h1>
       <form onSubmit = {e => onSubmit(e)}>
         <div className="form-group">
           <label for="email">Email address</label>
@@ -47,7 +48,7 @@ const Login = ({login, isAuthenticated}) => {
       <p className='my-1'>
         Don't have an account? <Link to='/register'>Register here</Link>
       </p>
-    </Fragment>
+    </div>
   ) 
 }
 

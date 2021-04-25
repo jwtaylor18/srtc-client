@@ -12,7 +12,7 @@ const Dashboard = ({getCurrentProfile, auth: {user}, profile: {profile, loading}
   }, [getCurrentProfile])
 
   return loading && profile === null ? <div>Dashboard loading</div> :
-    <div>
+    <div className="main-content">
       <h1>My Dashboard</h1>
       
       {profile !== null ? <Fragment><DashboardActions isOperator={user.isOperator}/></Fragment> : 

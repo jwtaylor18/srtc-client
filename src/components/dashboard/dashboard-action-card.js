@@ -6,7 +6,7 @@ import '../../styles/dashboard/dashboard-actions.css'
 
 
 
-const ActionCard = ({title, text, link}) => {
+const ActionCard = ({title, text, link, style}) => {
    
   return (
     <div className="col-12 col-lg-4">
@@ -18,8 +18,8 @@ const ActionCard = ({title, text, link}) => {
                 <div className="icon-placeholder"></div>
               </div>
               <div className="col-9">
-                <div className="title">{title}</div>
-                <div className="text">{text}</div>
+                <div className={`title ${style}`}>{title}</div>
+                <div className={style}>{text}</div>
               </div>
             </div>
           </div>

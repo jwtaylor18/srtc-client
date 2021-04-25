@@ -1,5 +1,5 @@
-input {
+.facility-search-box {
   width: 250px;
   display: block;
-  margin: 20px auto;
+  margin: 20px 0;
 }

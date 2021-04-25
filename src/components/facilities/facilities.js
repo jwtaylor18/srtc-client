@@ -15,9 +15,10 @@ const Facilities = ({getFacilities, facility: {facilities, loading}}) => {
   const listToDisplay = facilities.filter((f) => f.facilityName.toLowerCase().includes(searchTerm.toLowerCase()))
  
  
-  return loading ? <div>Loading</div> : <div>
+  return loading ? <div>Loading</div> : <div className="main-content">
     <h1>Search for Courts</h1>
     <input
+      className="facility-search-box"
       type='search'
       placeholder = 'Search by Court Name'
       onChange={e => setSearchTerm(e.target.value)}

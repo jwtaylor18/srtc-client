@@ -9,10 +9,10 @@
 }
 
 .profile-list {
-  border: 1px solid rgb(238, 238, 238);
+  border: 1px solid rgb(221, 218, 218);
   border-radius: 5px;
   margin-left: 1px;
-  margin-bottom: 1px;
+  margin-bottom: 5px;
   padding: 2rem;
 }
 
@@ -40,6 +40,12 @@
   box-shadow: 2px 2px 2px #656565;
   margin-top: 1rem;
   white-space: normal;
+}
+
+#profile-image {
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
 }
 
 .member-container {
@@ -76,4 +82,23 @@
 
 #lessonFocusAreas {
   padding: 0
+}
+
+.user-type {
+  font-style: italic;
+}
+
+.user-name {
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.facility-review-list-item {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.profile-btn {
+  margin-left: 30px;
 }

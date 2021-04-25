@@ -40,10 +40,10 @@ const PublicProfile = ({name, bio, email, isOperator}) => {
         </div>
         <div class="my-3 row">
           <div class="col-md-6 col-sm-12">
-            <span class="section-label">Email:</span>
+            <span class="section-label">City:</span>
           </div>
           <div class="col">
-            <span class="section-text">{email}</span>
+            <span class="section-text">Boston</span>
           </div>
         </div>
         <div class="my-3 row">

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import '../../styles/profile/profile-styles.css'
 
 
-const PrivateProfile = ({address, zipCode, rating, lessonFocusAreas}) => {
+const PrivateProfile = ({address, zipCode, rating, lessonFocusAreas, email}) => {
 
   return (
     <Fragment>
@@ -37,6 +37,14 @@ const PrivateProfile = ({address, zipCode, rating, lessonFocusAreas}) => {
             </div>
             <div class="col">
               <span class="section-text">{rating}</span>
+            </div>
+          </div>
+          <div class="my-3 row">
+            <div class="col-md-6 col-sm-12">
+              <span class="section-label">Email:</span>
+            </div>
+            <div class="col">
+              <span class="section-text">{email}</span>
             </div>
           </div>
           <div class="my-3 row">

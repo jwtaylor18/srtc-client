@@ -14,25 +14,19 @@ const ProfileItem = ({
     <div className="row profile-list">
       <div className="d-none d-md-block col-xl-1 col-md-2">
         <div>
-          <img src="https://images.unsplash.com/photo-1543382513-3617a90d9a46?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dGVubmlzJTIwcGxheWVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-            width="65" height="65"/>
+            <img id="profile-image" src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            />
         </div>
       </div>
-
       <div className="col">
         <div className="row">
           <div className="col">
-            <span>{name}</span>
+            <span className="user-name">{name}</span>
           </div>
         </div>
         <div className="my-2 row">
           <div className="col">
-            <span>{isOperator ? "Facility Operator" : "Tennis Player"}</span>
-          </div>
-        </div>
-        <div className="my-2 row">
-          <div className="col">
-            <span>{email}</span>
+            <span className="user-type">{isOperator ? "Facility Operator" : "Tennis Player"}</span>
           </div>
         </div>
       </div>

@@ -36,7 +36,7 @@ const Profile = ({getCurrentProfile, getProfileById, profile: {profile, loading}
             
             <div class="col-6">
               {auth && auth.isAuthenticated && auth.loading === false && auth.user._id === profile.user._id &&
-                (<Link to='/edit-profile' className='float-right btn btn-dark'>Edit My Profile</Link>)}
+                (<Link to='/edit-profile' className='float-right btn btn-dark profile-btn'>Edit My Profile</Link>)}
                 <Link to='/profiles' className="float-right btn btn-light">Back to Profile List</Link>
             </div>
           </div>
@@ -52,7 +52,8 @@ const Profile = ({getCurrentProfile, getProfileById, profile: {profile, loading}
                 <PrivateProfile 
                   address={profile.address} 
                   zipCode={profile.zipCode}
-                  rating={profile.rating} 
+                  rating={profile.rating}
+                  email={profile.user.email} 
                   lessonFocusAreas={profile.lessonFocusAreas}
                 />
                 <FacilityReviewList/>

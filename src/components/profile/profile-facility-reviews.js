@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {getFacilities} from '../../actions/facility-actions'
 import {getCurrentProfile} from '../../actions/profile-actions'
 import FacilityReviewItem from './profile-facility-review-item'
+import '../../styles/profile/profile-styles.css'
 
 
 const FacilityReviews = ({getFacilities, facility: {facilities, loading}, getCurrentProfile, auth}) => {

@@ -30,7 +30,7 @@ const FacilityCard = ({
           <p class="card-text">
             Court Surface: {courtSurface}
             <br/>
-            Number of Courts: {numCourts}
+            # of Courts: {numCourts}
           </p>
           <Link to={`/facilities/${_id}`} className="btn btn-primary">View Court Details</Link>
         </div>

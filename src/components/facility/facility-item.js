@@ -19,7 +19,7 @@ const Facility = ({auth, deleteFacility, getFacility, facility:{facility, loadin
 
     loading || facility === null ? (<div>Loading</div>) :
 
-    <div>
+    <div className="main-content">
       <div className="row">
         <div className="col-8">
           <h1>{facility.facilityName}</h1> 
@@ -27,7 +27,7 @@ const Facility = ({auth, deleteFacility, getFacility, facility:{facility, loadin
         <div className="col-4">
           {
             auth && !auth.loading && facility.operator === auth.user._id && (
-              <button onClick={e => deleteFacility(facility._id)} type='button' className='btn btn-danger'>Delete Court</button>
+              <button onClick={e => deleteFacility(facility._id)} type='button' className='btn btn-danger float-right'>Delete Court</button>
             )
           }
         </div>
