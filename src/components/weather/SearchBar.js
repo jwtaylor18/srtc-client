@@ -6,6 +6,13 @@ class SearchBar extends React.Component {
 
     }
 
+    componentDidMount() {
+        const elem = document.querySelector('#ddlSearch');
+        elem.selectedIndex = 0;        
+        const initVal = elem.value;
+        this.props.onSearchChange(initVal);
+    }
+
     onSearchChange= (event, club) => {
         event.preventDefault();
 
@@ -19,7 +26,7 @@ class SearchBar extends React.Component {
             clubs.length > 0 &&
             clubs.map((club, index) => {
                 // return <option value={`${club.lat},${club.lon}`}>{club.name}</option>;
-                return <option value={`${club.latitude},${club.longitude}`}>{club.facilityName}</option>;
+                return <option key={index} value={`${club.latitude},${club.longitude}`}>{club.facilityName}</option>;
             })
         );
     }

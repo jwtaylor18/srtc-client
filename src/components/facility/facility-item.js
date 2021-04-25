@@ -6,6 +6,7 @@ import {deleteFacility} from '../../actions/facility-actions'
 import {useParams} from 'react-router-dom'
 import CommentForm from './comment-form'
 import CommentItem from './comment-item'
+import WeatherPart from '../weather/WeatherPart'
 
 const Facility = ({auth, deleteFacility, getFacility, facility:{facility, loading}}) => {
 
@@ -86,15 +87,21 @@ const Facility = ({auth, deleteFacility, getFacility, facility:{facility, loadin
           </div>
         </div>
       </div>
-      <br/>
+      
       <div className="row">
-        <div className="col-12">
-          <h4>Placeholder for weather or reservations component</h4>
-        </div>
-      </div>
-      <br/>
-      <br/>
+          <div className="col-12">
+            <WeatherPart clubs={[
 
+              {
+                facilityName: facility.facilityName,
+                locationName: "not set",
+                latitude: facility.latitude,
+                longitude: facility.longitude
+              }
+
+            ]} />
+          </div>
+      </div>
        <div className="row">
         <div className="col-12">
           <h4>Court Reviews</h4>
