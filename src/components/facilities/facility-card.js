@@ -32,7 +32,7 @@ const FacilityCard = ({
             <br/>
             # of Courts: {numCourts}
           </p>
-          <Link to={`/facilities/${_id}`} className="btn btn-primary">View Court Details</Link>
+          <Link to={`/facilities/details/${_id}`} className="btn btn-primary">View Court Details</Link>
         </div>
       </div>
 

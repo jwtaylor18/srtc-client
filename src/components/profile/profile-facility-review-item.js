@@ -18,7 +18,7 @@ const FacilityReviewItem = ({
           <div className="font-italic">{commentText.length > 50 ? commentText.substring(0,49) + "..." : commentText}</div>
         </div>
         <div className="col-3">
-          <Link to={`/facilities/${facilityId}`} className="float-right btn btn-primary">View Review on Facility</Link>
+          <Link to={`/facilities/details/${facilityId}`} className="float-right btn btn-primary">View Review on Facility</Link>
         </div>
       </div>
   </li>

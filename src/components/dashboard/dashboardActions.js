@@ -61,7 +61,7 @@ const DashboardActions = ({isOperator}) => {
         <div>
           <h2>Facility Operator Actions</h2>
           <div className="row">
-            <ActionCard key={7} title="Create Facility" text="Create a new facility" link="/create-facility"/>
+            <ActionCard key={7} title="Create Facility" text="Create a new facility" link="/create-facility" style="enabled-action"/>
           </div>
         </div> : null }
       

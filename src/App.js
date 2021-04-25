@@ -48,7 +48,7 @@ const App = () => {
             <Alert/>
             <Switch>
               <Route exact path="/register" component={Register}/>
-              <Route exact path="/weather" component={Weather}/>
+              <PrivateRoute exact path="/weather" component={Weather}/>
               <Route exact path="/login" component={Login}/>
               <Route exact path="/profiles" component={Profiles}/>
               <Route exact path="/profile/:profileId" component={Profile}/>
@@ -57,7 +57,7 @@ const App = () => {
               <PrivateRoute exact path="/create-profile" component={CreateProfile}/>
               <PrivateRoute exact path="/edit-profile" component={EditProfile}/>
               <PrivateRoute exact path="/facilities" component={Facilities}/>
-              <PrivateRoute exact path="/facilities/:facilityId" component={Facility}/>
+              <PrivateRoute exact path="/facilities/details/:facilityId" component={Facility}/>
               <PrivateRoute exact path="/create-facility" component={CreateFacility}/>
             </Switch>
           </section>

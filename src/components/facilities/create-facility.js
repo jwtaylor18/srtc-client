@@ -38,8 +38,8 @@ const CreateFacility = ({addFacility, history}) => {
   }
 
   return (
-    <div>
-      <h1>Register your Tennis Facility</h1>
+    <div className="main-content">
+      <h1>Create A New Tennis Facility</h1>
       <form onSubmit = {e => onSubmit(e)}>
         <div className="form-group">
           <label for="facilityName">Facility Name</label>
@@ -104,7 +104,7 @@ const CreateFacility = ({addFacility, history}) => {
             required
             placeholder="Enter ZipCode"/>
         </div>
-        <button type="submit" className="btn btn-primary">Create Facility</button>
+        <button type="submit" className="btn btn-primary create-facility-btn">Create Facility</button>
         <Link className='btn btn-light my-1' to='/dashboard'>Back to Dashboard</Link>
       </form>
     </div>

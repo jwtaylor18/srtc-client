@@ -24,5 +24,6 @@
 }
 
 .disabled-action {
-  color: rgb(163, 162, 162)
+  color: rgb(163, 162, 162);
+  pointer-events: none;
 }
