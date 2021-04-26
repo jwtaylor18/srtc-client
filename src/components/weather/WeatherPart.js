@@ -1,41 +1,33 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import weatherService from '../../services/weather/weather-service';
-import SearchBar from './SearchBar';
 import WeatherDetail from './WeatherDetail';
 
-class WeatherPart extends React.Component {
-    constructor(props) {
-        super(props)
-
-    }
+const WeatherPart = ({lat, lon}) => {
     
-    state = {timezone: '', forecast: [] };
+    const [weatherData, setWeatherData] = useState()
 
-    onSearchChange = async (info) => {
-        
-        const location = info.split(',');
-        const lat = location[0];
-        const lon = location[1];
+    useEffect(async () => {
+        getWeatherData()
+    }, [lat, lon])
 
+    async function getWeatherData() {
         const response = await weatherService.get('/onecall', {
             params: {
                 lat: lat,
                 lon: lon
             }
         });
-
-        this.setState({timezone: response.data.timezone, forecast: response.data.hourly});
+        setWeatherData(response.data)
     }
+      
+    return (
 
+        weatherData === undefined ? (<div>Loading weather data</div>) :
 
-    render() {
-        return (
-            <div>
-                <SearchBar clubs={this.props.clubs} onSearchChange={this.onSearchChange} />
-                <WeatherDetail timezone={this.state.timezone} forecast={this.state.forecast} />
-            </div>
-        );
-    }
+        <div>
+            <WeatherDetail timezone={weatherData.timezone} forecast={weatherData.hourly} /> 
+        </div>
+    );
 }
 
 export default WeatherPart;

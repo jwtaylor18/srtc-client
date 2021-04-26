@@ -87,21 +87,14 @@ const Facility = ({auth, deleteFacility, getFacility, facility:{facility, loadin
           </div>
         </div>
       </div>
-      
       <div className="row">
-          <div className="col-12">
-            <WeatherPart clubs={[
-
-              {
-                facilityName: facility.facilityName,
-                locationName: "not set",
-                latitude: facility.latitude,
-                longitude: facility.longitude
-              }
-
-            ]} />
-          </div>
-      </div>
+            <div className="col-12">
+              <h4>Current Weather Forecast</h4>
+              <br></br>
+              <WeatherPart lat={facility.latitude} lon={facility.longitude}/>
+            </div>
+        </div>
+        <br></br>
        <div className="row">
         <div className="col-12">
           <h4>Court Reviews</h4>

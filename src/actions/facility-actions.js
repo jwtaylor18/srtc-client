@@ -80,7 +80,7 @@ export const getFacility = id => async dispatch => {
   } catch (err) {
       dispatch({
         type: FACILITY_ERROR,
-        payload: {msg: err.response.statusText, status: err.response.status}
+        payload: {msg: "Error in get facility action", status: 500}
       })
   }
 }
